@@ -32,7 +32,8 @@ pipeline {
                       -Dsonar.projectKey=Pipeline-AppLibros \
                       -Dsonar.projectName="Pipeline-AppLibros" \
                       -Dsonar.host.url=http://192.168.1.38:9000 \
-                      -Dsonar.token=sqp_552301f6394a3d4fc17531a1dabf93a3939fe329
+                      -Dsonar.token=sqp_552301f6394a3d4fc17531a1dabf93a3939fe329 \
+                      -Dsonar.java.binaries=target/classes
                     '''
                 }
             }
