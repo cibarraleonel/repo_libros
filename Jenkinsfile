@@ -37,5 +37,4 @@ pipeline {
             junit '**/target/surefire-reports/*.xml' // Publica resultados de las pruebas (JUnit/Surefire reports)
         }
     }
-//
 }
