@@ -37,7 +37,7 @@ pipeline {
                 withSonarQubeEnv('sonarqube') { // 'SonarQube' es el nombre que configuraste en la sección SonarQube Servers
 
                     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONARQUBE_TOKEN')]){
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=mi-proyecto -Dsonar.sources=src -Dsonar.java.binaries=target/classes -Dsonar.login='SONARQUBE_TOKEN' "
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=Pipeline-AppLibros -Dsonar.sources=src -Dsonar.java.binaries=target/classes -Dsonar.login=$SONARQUBE_TOKEN "
                     }
                 }
             }
