@@ -31,7 +31,7 @@ pipeline {
         //        }
           stage('SonarQube Analysis') {
             environment {
-                scannerHome = tool 'sonarqube' // Nombre que diste al SonarQube Scanner en la configuración
+                scannerHome = tool 'sonarScanner' // Nombre que diste al SonarQube Scanner en la configuración
             }
             steps {
                 withSonarQubeEnv('sonarqube') { // 'SonarQube' es el nombre que configuraste en la sección SonarQube Servers
