@@ -37,7 +37,7 @@ pipeline {
             environment {
                 // Variables de entorno a nivel global
                 DOCKER_USERNAME = 'cibarraleonel'
-                DOCKER_PASSWORD =  PASSWORD_DOCKERHUB
+                DOCKER_PASSWORD =  'PASSWORD_DOCKERHUB'
                 DOCKER_IMAGE_NAME = 'ddsdeploy'
             }
 
