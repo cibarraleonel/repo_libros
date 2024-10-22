@@ -5,14 +5,15 @@ pipeline {
         maven 'Maven' // Reemplaza 'Maven 3.8.1' por el nombre que configuraste en la instalación de Maven
     }
 
-    stage('Checkout') {
+    stages {
+        stage('Checkout') {
             steps {
                 // Aquí clona el repositorio del proyecto
                 git branch: 'main', url: 'https://github.com/cibarraleonel/repo_libros.git'
             }
         }
 
-    stages {
+
         stage('Compilar Proyecto') {
             steps {
                 // Comando para compilar el proyecto usando Maven
