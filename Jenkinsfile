@@ -3,7 +3,6 @@ pipeline {
     
     tools {
         maven 'Maven' // Reemplaza 'Maven 3.8.1' por el nombre que configuraste en la instalación de Maven
-        docker 'docker'
     }
 
     stages {
@@ -34,6 +33,8 @@ pipeline {
         }
 
         stage('Build Docker Image'){
+
+            agent any
 
             environment {
                 // Variables de entorno a nivel global
