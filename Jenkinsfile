@@ -36,16 +36,28 @@ pipeline {
 
 
             environment {
-                // Variables de entorno a nivel global
-                DOCKER_USERNAME = 'cibarraleonel'
-                DOCKER_PASSWORD =  'PASSWORD_DOCKERHUB'
-                DOCKER_IMAGE_NAME = 'cibarraleonel/ddsdeploy-TP'
+                // Variables de entornO
+                DOCKERHUB_CREDENTIALS =  credentials('dockerhub-token')
+                DOCKERHUB_REPO = 'cibarraleonel/ddsdeploy-TP'
             }
 
             steps{
-                sh 'docker build -t ${DOCKER_IMAGE_NAME}:latest .'
-                sh 'docker login -u ${DOCKER_USERNAME} - p ${DOCKER_PASSWORD}'
-                sh 'docker push ${DOCKER_IMAGE_NAME}:latest'
+                script {
+                    // Construye la imagen Docker con un tag "latest"
+                    docker.build("${env.DOCKERHUB_REPO}:latest")
+                }
+            }
+        }
+
+        stage('Push a DockerHub') {
+            steps {
+                script {
+                    // Inicia sesión en DockerHub
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-token') {
+                        // Hace el push de la imagen construida a DockerHub
+                        docker.image("${env.DOCKERHUB_REPO}:latest").push()
+                    }
+                }
             }
         }
 
