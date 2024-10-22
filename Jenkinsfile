@@ -38,14 +38,13 @@ pipeline {
                 // Variables de entorno a nivel global
                 DOCKER_USERNAME = 'cibarraleonel'
                 DOCKER_PASSWORD =  'PASSWORD_DOCKERHUB'
-                DOCKER_IMAGE_NAME = 'ddsdeploy-TP'
+                DOCKER_IMAGE_NAME = 'cibarraleonel/ddsdeploy-TP'
             }
 
             steps{
-                
-                sh 'docker build -t ${DOCKER_IMAGE_NAME}:latest'
+                sh 'docker build -t ${DOCKER_IMAGE_NAME}:latest .'
                 sh 'docker login -u ${DOCKER_USERNAME} - p ${DOCKER_PASSWORD}'
-                sh 'docker push ${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:latest'
+                sh 'docker push ${DOCKER_IMAGE_NAME}:latest'
             }
         }
 
