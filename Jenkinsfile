@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none //any
     
     tools {
         maven 'Maven' // Reemplaza 'Maven 3.8.1' por el nombre que configuraste en la instalación de Maven
@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Build Docker Image'){
-
+            
             agent any
 
             environment {
