@@ -46,15 +46,16 @@ pipeline {
                 sh 'docker push cibarraleonel/repo_libros:lastest'
                 sh 'docker rmi cibarraleonel/repo_libros:lastest'
             }
+
+            post {
+                success{
+                    sh 'echo Build, Login y Push OK!'
+                }
+                failure{
+                    sh 'echo Falló Build, Login y Push'
+                }
+            }
         }    
-        post {
-            success{
-                sh 'echo Build, Login y Push OK!'
-            }
-            failure{
-                sh 'echo Falló Build, Login y Push'
-            }
-        }
    }
 
     post {
