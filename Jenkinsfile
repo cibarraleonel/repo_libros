@@ -37,8 +37,7 @@ pipeline {
 
             environment {
                 // Variables de entornO
-                DOCKERHUB_CREDENTIALS =  credentials('dockerhub-token')
-                DOCKERHUB_REPO = 'cibarraleonel/ddsdeploy-TP'
+                DOCKERHUB_PASSWORD =  credentials('dockerhub-password')
             }
 
             steps{
@@ -49,8 +48,8 @@ pipeline {
         stage('Push a DockerHub') {
             steps {
                 sh 'docker build -t cibarraleonel/repo_libros:lastest .'
-                //sh 'docker login -u cibarraleonel -p $DOCKERHUB_CREDENTIALS'
-                //sh 'docker push cibarraleonel/repo_libros:lastest'
+                sh 'docker login -u cibarraleonel/repo_libros:lastest -p $DOCKERHUB_CREDENTIALS'
+                sh 'docker push cibarraleonel/repo_libros:lastest'
             }
         }
 
