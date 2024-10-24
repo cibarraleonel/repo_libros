@@ -53,7 +53,7 @@ pipeline {
                 script {
                     // Construye la imagen Docker con un tag "latest"
                     //docker.build("${env.DOCKERHUB_REPO}:latest")
-                    docker build -t ${DOCKERHUB_REPO}:lastest .
+                    docker build -t $DOCKERHUB_REPO:lastest .
                 }
             }
         }
