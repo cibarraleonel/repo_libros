@@ -42,14 +42,11 @@ pipeline {
             }
 
             steps{
-                script {
-                    // Construye la imagen Docker con un tag "latest"
-                    docker.build("${env.DOCKERHUB_REPO}:latest")
-                }
+                sh 'echo Docker'
             }
         }
 
-        stage('Push a DockerHub') {
+        /*stage('Push a DockerHub') {
             steps {
                 script {
                     // Inicia sesión en DockerHub
@@ -59,7 +56,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
 
 
         
