@@ -49,7 +49,7 @@ pipeline {
         stage('Push a DockerHub') {
             steps {
                 sh 'docker build cibarraleonel/repo_libros:lastest .'
-                sh 'docker.withRegistry('', $DOCKERHUB_CREDENTIALS)'
+                sh 'docker login -u cibarraleonel -p $DOCKERHUB_CREDENTIALS'
                 sh 'docker push cibarraleonel/repo_libros:lastest'
             }
         }
