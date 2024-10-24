@@ -42,10 +42,9 @@ pipeline {
 
             steps{
                 sh 'docker build -t cibarraleonel/repo_libros .'
-                sh 'docker tag cibarraleonel/repo_libros cibarraleonel/repo_libros:latest'
                 sh 'docker login -u cibarraleonel -p $DOCKERHUB_PASSWORD'
-                sh 'docker push cibarraleonel/repo_libros:lastest'
-                sh 'docker rmi cibarraleonel/repo_libros:lastest'
+                sh 'docker push cibarraleonel/repo_libros'
+                sh 'docker rmi cibarraleonel/repo_libros'
             }
 
             post {
