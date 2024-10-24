@@ -42,7 +42,7 @@ pipeline {
             }
 
             steps{
-                sh 'echo Docker'
+                sh 'docker --version'
             }
         }
 
