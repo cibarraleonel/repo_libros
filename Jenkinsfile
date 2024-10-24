@@ -46,17 +46,14 @@ pipeline {
             }
         }
 
-        /*stage('Push a DockerHub') {
+        stage('Push a DockerHub') {
             steps {
-                script {
-                    // Inicia sesión en DockerHub
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-token') {
-                        // Hace el push de la imagen construida a DockerHub
-                        docker.image("${env.DOCKERHUB_REPO}:latest").push()
-                    }
-                }
+                sh 'pwd'
+                sh 'docker --version'
+                sh 'pwd'
+                sh 'ls -al'
             }
-        }*/ 
+        }
 
 
         
