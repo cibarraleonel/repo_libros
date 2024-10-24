@@ -6,14 +6,6 @@ pipeline {
     }
 
     stages {
-        /*stage('Checkout') {
-            steps {
-                // Aquí clona el repositorio del proyecto
-                git branch: 'main', url: 'https://github.com/cibarraleonel/repo_libros'
-            }
-        }*/
-
-
         stage('Compilar Proyecto') {
             steps {
                 // Comando para compilar el proyecto usando Maven
@@ -50,17 +42,14 @@ pipeline {
             }
 
             steps{
-                /*script {
+                script {
                     // Construye la imagen Docker con un tag "latest"
-                    //docker.build("${env.DOCKERHUB_REPO}:latest")
-                    //docker build -t $DOCKERHUB_REPO:lastest .
-                    
-                }*/
-                sh 'echo DOCKER'
+                    docker.build("${env.DOCKERHUB_REPO}:latest")
+                }
             }
         }
 
-        /*stage('Push a DockerHub') {
+        stage('Push a DockerHub') {
             steps {
                 script {
                     // Inicia sesión en DockerHub
@@ -70,7 +59,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
 
 
         
