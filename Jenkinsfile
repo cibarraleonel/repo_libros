@@ -48,8 +48,9 @@ pipeline {
         stage('Push a DockerHub') {
             steps {
                 sh 'docker build -t cibarraleonel/repo_libros:lastest .'
-                sh 'docker login -u cibarraleonel/repo_libros:lastest -p $DOCKERHUB_CREDENTIALS'
+                sh 'docker login -u cibarraleonel -p $DOCKERHUB_PASSWORD'
                 sh 'docker push cibarraleonel/repo_libros:lastest'
+                
             }
         }
 
