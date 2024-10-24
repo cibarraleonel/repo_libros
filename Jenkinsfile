@@ -44,11 +44,17 @@ pipeline {
                 sh 'docker build -t cibarraleonel/repo_libros:lastest .'
                 sh 'docker login -u cibarraleonel -p $DOCKERHUB_PASSWORD'
                 sh 'docker push cibarraleonel/repo_libros:lastest'
+                sh 'docker rmi cibarraleonel/repo_libros:lastest'
+            }
+        }    
+        post{
+            success{
+                sh 'echo Build, Login y Push OK!'
+            }
+            failture{
+                sh 'echo Falló Build, Login y Push'
             }
         }
-
-
-        
    }
 
     post {
