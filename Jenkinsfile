@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Aquí clona el repositorio del proyecto
-                git branch: 'main', url: 'https://github.com/cibarraleonel/repo_libros'
+                //git branch: 'main', url: 'https://github.com/cibarraleonel/repo_libros'
             }
         }
 
