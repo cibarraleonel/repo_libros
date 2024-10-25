@@ -61,9 +61,10 @@ pipeline {
                 label 'minikube'
             }
             steps {
+                sh 'cd /home/leoibarra/'
                 sh 'docker pull cibarraleonel/repo_libros:latest'
                 // Reinicia el despliegue para cargar la nueva imagen
-                sh 'kubectl rollout restart pod appx'
+                sh 'kubectl rollout restart deployment appx'
             }
         }   
    }
