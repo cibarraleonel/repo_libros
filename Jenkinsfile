@@ -71,14 +71,13 @@ pipeline {
             }
             steps {
                 sh'''
-                    
-                    sh 'pwd'
+                    pwd
                 '''
 
 
                 //sh 'alias kubectl="minikube kubectl --"'
-                sh 'cd /home/leoibarra/'
-                sh 'pwd'
+                //sh 'cd /home/leoibarra/'
+                //sh 'pwd'
                 //sh 'docker pull cibarraleonel/repo_libros:latest'
                 // Reinicia el despliegue para cargar la nueva imagen
                 //sh 'minikube kubectl rollout restart deployment appx'
