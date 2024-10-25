@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     
     tools {
         maven 'Maven' // Reemplaza 'Maven 3.8.1' por el nombre que configuraste en la instalación de Maven
@@ -57,9 +57,9 @@ pipeline {
             }
         } */
         stage('Restart Appx Pod in Minikube') {
-            agent {
+            /*agent {
                 label 'minikube'
-            }
+            }*/
             options {
                 skipDefaultCheckout(true)  // Evita que haga el checkout en VM2
             }
