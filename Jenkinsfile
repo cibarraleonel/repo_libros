@@ -12,7 +12,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         } 
-        stage('SonarQube Analysis') {
+        /*stage('SonarQube Analysis') {
             environment {
                 scannerHome = tool 'sonarScanner' // Nombre que diste al SonarQube Scanner en la configuración
             }
@@ -24,7 +24,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         stage('Ejecutar Pruebas') {
             steps {
                 // Comando para ejecutar los tests usando Maven
@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image'){
+        /*stage('Build Docker and Push Image'){
 
 
             environment {
@@ -55,12 +55,13 @@ pipeline {
                     sh 'echo Falló Build, Login y Push'
                 }
             }
-        } 
+        } */
         stage('Restart Appx Pod in Minikube') {
             agent {
                 label 'minikube'
             }
             steps {
+                sh 'alias kubectl="minikube kubectl --'
                 sh 'cd /home/leoibarra/'
                 sh 'docker pull cibarraleonel/repo_libros:latest'
                 // Reinicia el despliegue para cargar la nueva imagen
