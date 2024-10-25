@@ -72,9 +72,10 @@ pipeline {
             steps {
                 //sh 'alias kubectl="minikube kubectl --"'
                 sh 'cd /home/leoibarra/'
-                sh 'docker pull cibarraleonel/repo_libros:latest'
+                sh 'nano asd.txt'
+                //sh 'docker pull cibarraleonel/repo_libros:latest'
                 // Reinicia el despliegue para cargar la nueva imagen
-                sh 'kubectl rollout restart deployment appx'
+                //sh 'kubectl rollout restart deployment appx'
             }
         }   
    }
