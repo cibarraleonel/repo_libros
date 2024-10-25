@@ -7,6 +7,7 @@ pipeline {
 
     stages {
         stage('Compilar Proyecto') {
+            agent any
             steps {
                 // Comando para compilar el proyecto usando Maven
                 sh 'mvn clean install'
@@ -26,6 +27,8 @@ pipeline {
             }
         }*/
         stage('Ejecutar Pruebas') {
+
+            
             steps {
                 // Comando para ejecutar los tests usando Maven
                 sh 'mvn test'
@@ -33,6 +36,8 @@ pipeline {
         }
 
         /*stage('Build Docker and Push Image'){
+
+
 
 
             environment {
