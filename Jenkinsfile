@@ -60,6 +60,9 @@ pipeline {
             agent {
                 label 'minikube'
             }
+            options {
+                skipDefaultCheckout(true)  // Evita que haga el checkout en VM2
+            }
             steps {
                 sh 'alias kubectl="minikube kubectl --'
                 sh 'cd /home/leoibarra/'
