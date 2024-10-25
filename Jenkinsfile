@@ -55,7 +55,17 @@ pipeline {
                     sh 'echo Falló Build, Login y Push'
                 }
             }
-        }    
+        } 
+        stage('Restart Appx Pod in Minikube') {
+            agent {
+                label 'minikube'
+            }
+            steps {
+                sh 'docker pull cibarraleonel/repo_libros:latest'
+                // Reinicia el despliegue para cargar la nueva imagen
+                sh 'kubectl rollout restart pod appx'
+            }
+        }   
    }
 
     post {
