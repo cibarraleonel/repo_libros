@@ -71,7 +71,7 @@ pipeline {
             }
             steps {
                 sh'''
-                    sh 'cd /home/leoibarra/'
+                    
                     sh 'pwd'
                 '''
 
