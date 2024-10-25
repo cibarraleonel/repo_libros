@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    //agent any
     
     tools {
         maven 'Maven' // Reemplaza 'Maven 3.8.1' por el nombre que configuraste en la instalación de Maven
