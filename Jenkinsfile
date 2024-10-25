@@ -63,9 +63,9 @@ pipeline {
             }
         } */
         stage('Restart Appx Pod in Minikube') {
-            /*agent {
+            agent {
                 label 'minikube'
-            }*/
+            }
             options {
                 skipDefaultCheckout(true)  // Evita que haga el checkout en VM2
             }
