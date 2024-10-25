@@ -70,11 +70,12 @@ pipeline {
                 skipDefaultCheckout(true)  // Evita que haga el checkout en VM2
             }
             steps {
-                sh 'alias kubectl="minikube kubectl --"'
+                //sh 'alias kubectl="minikube kubectl --"'
                 sh 'cd /home/leoibarra/'
-                sh 'docker pull cibarraleonel/repo_libros:latest'
+                sh 'pwd'
+                //sh 'docker pull cibarraleonel/repo_libros:latest'
                 // Reinicia el despliegue para cargar la nueva imagen
-                sh 'kubectl rollout restart deployment appx'
+                sh 'minikube kubectl rollout restart deployment appx'
             }
         }   
    }
